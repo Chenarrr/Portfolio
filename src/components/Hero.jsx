@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './Hero.css';
 
 const Hero = () => {
     const [displayText, setDisplayText] = useState('');
@@ -25,36 +24,37 @@ const Hero = () => {
     };
 
     return (
-        <section id="home" className="hero section">
-            <div className="hero-background">
-                <div className="floating-shape shape-1"></div>
-                <div className="floating-shape shape-2"></div>
-                <div className="floating-shape shape-3"></div>
+        <section id="home" className="section relative pt-32 overflow-hidden">
+            {/* Floating Shapes */}
+            <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+                <div className="absolute w-96 h-96 rounded-full bg-gradient-to-r from-purple-500 to-purple-800 opacity-30 blur-3xl top-[10%] left-[10%] animate-float"></div>
+                <div className="absolute w-72 h-72 rounded-full bg-gradient-to-r from-pink-500 to-red-500 opacity-30 blur-3xl bottom-[20%] right-[15%] animate-float" style={{ animationDelay: '2s' }}></div>
+                <div className="absolute w-80 h-80 rounded-full bg-gradient-to-r from-blue-400 to-cyan-400 opacity-20 blur-3xl top-1/2 left-1/2 animate-float" style={{ animationDelay: '4s' }}></div>
             </div>
 
-            <div className="container hero-container">
-                <div className="hero-content animate-fadeInUp">
-                    <div className="hero-greeting">
-                        <span className="wave">👋</span>
+            <div className="container grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-16 items-center relative z-10">
+                <div className="animate-fadeInUp space-y-6">
+                    <div className="flex items-center gap-3 text-xl text-gray-400">
+                        <span className="text-4xl inline-block animate-[wave_2s_ease-in-out_infinite]" style={{ transformOrigin: '70% 70%' }}>👋</span>
                         <span>Hello, I'm</span>
                     </div>
 
-                    <h1 className="hero-name">
+                    <h1 className="leading-tight">
                         Chenar Abdulrazaq
                     </h1>
 
-                    <div className="hero-title">
-                        <span className="typing-text">{displayText}</span>
-                        <span className="cursor">|</span>
+                    <div className="text-2xl md:text-3xl text-gray-400 font-medium min-h-[60px]">
+                        <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">{displayText}</span>
+                        <span className="text-cyan-400 animate-[blink_1s_step-end_infinite]">|</span>
                     </div>
 
-                    <p className="hero-description">
+                    <p className="text-gray-300 text-lg leading-relaxed max-w-2xl">
                         Enthusiastic software engineering student with a strong background in Web and Mobile
                         Development. I am committed to developing creative solutions and
                         adapting to new technologies. Based in Erbil, Iraq.
                     </p>
 
-                    <div className="hero-cta">
+                    <div className="flex gap-4 flex-wrap">
                         <button onClick={scrollToContact} className="btn btn-primary">
                             Get In Touch
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,12 +66,12 @@ const Hero = () => {
                         </button>
                     </div>
 
-                    <div className="hero-social">
+                    <div className="flex gap-4 pt-4">
                         <a
                             href="https://github.com/Chenarrr"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="social-link"
+                            className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1a1a24] border border-white/10 text-gray-400 hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-800 hover:text-white hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] hover:border-transparent transition-all duration-300"
                             aria-label="GitHub"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -80,7 +80,7 @@ const Hero = () => {
                         </a>
                         <a
                             href="mailto:chenar.abdulrazaq@ukh.edu.krd"
-                            className="social-link"
+                            className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1a1a24] border border-white/10 text-gray-400 hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-800 hover:text-white hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] hover:border-transparent transition-all duration-300"
                             aria-label="Email"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -90,7 +90,7 @@ const Hero = () => {
                         </a>
                         <a
                             href="tel:+9647502265572"
-                            className="social-link"
+                            className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1a1a24] border border-white/10 text-gray-400 hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-800 hover:text-white hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] hover:border-transparent transition-all duration-300"
                             aria-label="Phone"
                         >
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -100,11 +100,11 @@ const Hero = () => {
                     </div>
                 </div>
 
-                <div className="hero-image animate-float">
-                    <div className="image-wrapper">
-                        <div className="image-glow"></div>
-                        <div className="profile-placeholder">
-                            <svg width="200" height="200" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                <div className="flex justify-center items-center animate-float">
+                    <div className="relative w-96 h-96 flex items-center justify-center">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-purple-500 to-purple-800 rounded-full blur-3xl opacity-40 animate-pulse-slow"></div>
+                        <div className="relative w-80 h-80 bg-[rgba(26,26,36,0.6)] backdrop-blur-lg border-2 border-white/10 rounded-full flex items-center justify-center overflow-hidden group hover:border-white/20 transition-all duration-300">
+                            <svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
                                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
                                 <circle cx="12" cy="7" r="4" />
                             </svg>
@@ -113,9 +113,9 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="scroll-indicator">
-                <div className="mouse">
-                    <div className="wheel"></div>
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 text-sm animate-fadeIn" style={{ animationDelay: '1s' }}>
+                <div className="w-6 h-10 border-2 border-white/30 rounded-2xl flex justify-center pt-2">
+                    <div className="w-1 h-2 bg-cyan-400 rounded-full animate-[scroll_1.5s_ease-in-out_infinite]"></div>
                 </div>
                 <p>Scroll Down</p>
             </div>

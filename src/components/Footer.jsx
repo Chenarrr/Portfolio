@@ -1,5 +1,4 @@
 import React from 'react';
-import './Footer.css';
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -18,7 +17,7 @@ const Footer = () => {
             name: 'Email',
             url: 'mailto:chenar.abdulrazaq@ukh.edu.krd',
             icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                     <polyline points="22,6 12,13 2,6" />
                 </svg>
@@ -28,7 +27,7 @@ const Footer = () => {
             name: 'Phone',
             url: 'tel:+9647502265572',
             icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
             )
@@ -40,40 +39,44 @@ const Footer = () => {
     };
 
     return (
-        <footer className="footer">
-            <div className="footer-content container">
-                <div className="footer-main">
-                    <div className="footer-brand">
-                        <h3 className="footer-logo">
-                            <span className="logo-text">Chenar</span>
-                            <span className="logo-dot">.</span>
+        <footer className="bg-[#0a0a0f] border-t border-white/10 py-12 mt-16">
+            <div className="container">
+                <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 mb-8">
+                    <div className="space-y-4">
+                        <h3 className="text-3xl font-bold font-display">
+                            <span className="text-gradient">Chenar</span>
+                            <span className="text-pink-500">.</span>
                         </h3>
-                        <p className="footer-tagline">
+                        <p className="text-gray-400 max-w-sm">
                             Building digital experiences with passion and precision
                         </p>
                     </div>
 
-                    <div className="footer-links">
-                        <h4>Quick Links</h4>
-                        <nav>
-                            <a href="#about">About</a>
-                            <a href="#experience">Experience</a>
-                            <a href="#projects">Projects</a>
-                            <a href="#skills">Skills</a>
-                            <a href="#contact">Contact</a>
+                    <div>
+                        <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
+                        <nav className="flex flex-col gap-3">
+                            {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
+                                <a
+                                    key={item}
+                                    href={`#${item.toLowerCase()}`}
+                                    className="text-gray-400 hover:text-cyan-400 hover:translate-x-1 transition-all duration-300 inline-block text-sm"
+                                >
+                                    {item}
+                                </a>
+                            ))}
                         </nav>
                     </div>
 
-                    <div className="footer-social">
-                        <h4>Connect</h4>
-                        <div className="social-links">
+                    <div>
+                        <h4 className="text-white text-lg font-semibold mb-4">Connect</h4>
+                        <div className="flex gap-4">
                             {socialLinks.map((link, index) => (
                                 <a
                                     key={index}
                                     href={link.url}
                                     target={link.url.startsWith('http') ? '_blank' : '_self'}
                                     rel="noopener noreferrer"
-                                    className="footer-social-link"
+                                    className="w-11 h-11 flex items-center justify-center bg-[#1a1a24] border border-white/10 rounded-full text-gray-400 hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-800 hover:text-white hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] hover:border-transparent transition-all duration-300"
                                     aria-label={link.name}
                                 >
                                     {link.icon}
@@ -83,12 +86,16 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="footer-bottom">
-                    <p className="footer-copyright">
+                <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10">
+                    <p className="text-gray-500 text-sm text-center md:text-left">
                         © {currentYear} Chenar Abdulrazaq. All rights reserved.
                     </p>
-                    <button onClick={scrollToTop} className="back-to-top" aria-label="Back to top">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <button
+                        onClick={scrollToTop}
+                        className="w-11 h-11 flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-800 rounded-full text-white hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] transition-all duration-300 shadow-lg"
+                        aria-label="Back to top"
+                    >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <path d="M18 15l-6-6-6 6" />
                         </svg>
                     </button>

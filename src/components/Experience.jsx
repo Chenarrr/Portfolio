@@ -1,5 +1,4 @@
 import React from 'react';
-import './Experience.css';
 
 const Experience = () => {
     const experiences = [
@@ -42,36 +41,50 @@ const Experience = () => {
     ];
 
     return (
-        <section id="experience" className="experience section">
+        <section id="experience" className="section">
             <div className="container">
                 <div className="section-title">
                     <h2>Professional Experience</h2>
                 </div>
 
-                <div className="experience-timeline">
-                    {experiences.map((exp, index) => (
-                        <div key={index} className="timeline-item" style={{ animationDelay: `${index * 0.2}s` }}>
-                            <div className="timeline-marker">
-                                <div className="marker-icon">{exp.icon}</div>
-                            </div>
+                <div className="relative max-w-4xl mx-auto">
+                    {/* Timeline Line */}
+                    <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 to-cyan-400"></div>
 
-                            <div className="timeline-content card">
-                                <div className="timeline-header">
-                                    <div>
-                                        <h3 className="role-title">{exp.role}</h3>
-                                        <p className="company-name">{exp.company}</p>
+                    <div className="space-y-12">
+                        {experiences.map((exp, index) => (
+                            <div
+                                key={index}
+                                className="relative pl-20 animate-fadeInUp"
+                                style={{ animationDelay: `${index * 0.2}s` }}
+                            >
+                                <div className="absolute left-0 top-0 w-15 h-15 flex items-center justify-center">
+                                    <div className="w-15 h-15 bg-gradient-to-r from-purple-500 to-purple-800 rounded-full flex items-center justify-center text-3xl shadow-[0_0_0_4px_#0a0a0f,0_0_20px_rgba(102,126,234,0.5)] transition-all duration-300 hover:scale-110 hover:rotate-6 hover:shadow-[0_0_0_4px_#0a0a0f,0_0_30px_rgba(102,126,234,0.8)]">
+                                        {exp.icon}
                                     </div>
-                                    <span className="period">{exp.period}</span>
                                 </div>
 
-                                <ul className="responsibilities">
-                                    {exp.responsibilities.map((item, i) => (
-                                        <li key={i}>{item}</li>
-                                    ))}
-                                </ul>
+                                <div className="card">
+                                    <div className="flex justify-between items-start gap-4 mb-6 flex-wrap">
+                                        <div>
+                                            <h3 className="text-2xl text-white font-bold mb-2">{exp.role}</h3>
+                                            <p className="text-lg text-gradient font-semibold">{exp.company}</p>
+                                        </div>
+                                        <span className="px-4 py-2 bg-[#1a1a24] border border-white/10 rounded-full text-sm text-gray-400 whitespace-nowrap">{exp.period}</span>
+                                    </div>
+
+                                    <ul className="space-y-3">
+                                        {exp.responsibilities.map((item, i) => (
+                                            <li key={i} className="relative pl-8 text-gray-300 leading-relaxed">
+                                                <span className="absolute left-0 text-cyan-400 text-xl font-bold">▹</span>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
