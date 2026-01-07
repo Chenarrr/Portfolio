@@ -1,17 +1,29 @@
-version: '3.8'
+version: '3.8' # The version of syntax we are using
 
 services:
+  # Define a service named 'portfolio-dev'
   portfolio-dev:
+    # Build the image from the Dockerfile in the current directory (.)
     build:
       context: .
 
+    # Name the container so we can easily find it (e.g., 'docker ps')
     container_name: chenar-portfolio-dev
+
+    # Map ports: [Host Port]:[Container Port]
+    # We map port 5173 on your computer to port 5173 inside the container
     ports:
       - "5173:5173"
+
+    # Volumes allow us to share files between your computer and the container
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .:/app # Sync current folder (.) to /app in container (Hot Reloading!)
+      - /app/node_modules # Determine that node_modules lives inside the container (don't overwrite it)
+
+    # Set environment variables inside the container
     environment:
       - NODE_ENV=development
+
+    # These settings keep the container running and allow interactive terminal access
     stdin_open: true
     tty: true

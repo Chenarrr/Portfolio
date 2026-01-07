@@ -1,18 +1,34 @@
+# Name of the workflow as it appears in GitHub Actions
 name: CI Build Check
 
+# "on" defines WHEN this automation should run
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main", "master" ] # Run when code is pushed to main or master branch
   pull_request:
-    branches: [ "main", "master" ]
+    branches: [ "main", "master" ] # Run when someone opens a Pull Request to these branches
 
+# "jobs" defines the actual work to be done
 jobs:
   build:
+    # We run this on a virtual machine provided by GitHub (latest Ubuntu Linux)
     runs-on: ubuntu-latest
 
-
+    # "steps" are the individual actions to take in order
     steps:
+    # Step 1: Check out the code. This downloads your repository to the virtual machine.
     - uses: actions/checkout@v3
     
+    # Step 2: Build the Docker image
+    # "docker build ." -> Build from the current directory
+    # "--file Dockerfile" -> Use the file named "Dockerfile"
+    # "--tag my-portfolio:latest" -> Give it a name so we can use it in the next step
     - name: Build Docker Image
       run: docker build . --file Dockerfile --tag my-portfolio:latest
+
+    # Step 3: Run the build command INSIDE the container to verify it works
+    # "docker run --rm" -> Run a container and delete it immediately after (--rm)
+    # "my-portfolio:latest" -> Use the image we just built
+    # "npm run build" -> The command to run inside the container. If this fails (e.g., syntax error), the CI fails.
+    - name: Verify App Builds
+      run: docker run --rm my-portfolio:latest npm run build
