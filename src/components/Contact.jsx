@@ -1,27 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-    });
-
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-        alert('Thank you for your message! I will get back to you soon.');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-    };
-
     const contactInfo = [
         {
             icon: (
@@ -77,99 +56,24 @@ const Contact = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-12 mt-12">
-                    <div>
-                        <h3 className="text-3xl font-bold text-gradient mb-4">Let's Talk</h3>
-                        <p className="text-gray-300 text-lg leading-relaxed mb-8">
-                            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
-                        </p>
-
-                        <div className="space-y-4">
-                            {contactInfo.map((item, index) => (
-                                <div key={index} className="flex items-center gap-4 p-5 bg-[rgba(26,26,36,0.6)] backdrop-blur-lg border border-white/10 rounded-xl hover:translate-x-2 hover:border-purple-500/50 hover:shadow-lg transition-all duration-300">
-                                    <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-800 rounded-xl text-white flex-shrink-0">
-                                        {item.icon}
-                                    </div>
-                                    <div>
-                                        <h4 className="text-sm text-gray-500 font-medium mb-1">{item.title}</h4>
-                                        {item.link ? (
-                                            <a href={item.link} target={item.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" className="text-white hover:text-cyan-400 transition-colors duration-300">
-                                                {item.value}
-                                            </a>
-                                        ) : (
-                                            <p className="text-white">{item.value}</p>
-                                        )}
-                                    </div>
-                                </div>
-                            ))}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+                    {contactInfo.map((item, index) => (
+                        <div key={index} className="flex flex-col items-center gap-4 p-6 bg-[rgba(26,26,36,0.6)] backdrop-blur-lg border border-white/10 rounded-xl hover:translate-y-[-5px] hover:border-purple-500/50 hover:shadow-lg transition-all duration-300 transform group">
+                            <div className="w-16 h-16 flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-800 rounded-full text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                {item.icon}
+                            </div>
+                            <div className="text-center">
+                                <h4 className="text-lg text-white font-medium mb-2">{item.title}</h4>
+                                {item.link ? (
+                                    <a href={item.link} target={item.link.startsWith('http') ? '_blank' : '_self'} rel="noopener noreferrer" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 break-all">
+                                        {item.value}
+                                    </a>
+                                ) : (
+                                    <p className="text-gray-400">{item.value}</p>
+                                )}
+                            </div>
                         </div>
-                    </div>
-
-                    <form className="card" onSubmit={handleSubmit}>
-                        <div className="mb-6">
-                            <label htmlFor="name" className="block mb-2 text-white font-medium text-sm">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                                placeholder="Your name"
-                                className="w-full px-5 py-3.5 bg-[#1a1a24] border border-white/10 rounded-xl text-white focus:outline-none focus:border-purple-500 focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] transition-all duration-300 placeholder:text-gray-600"
-                            />
-                        </div>
-
-                        <div className="mb-6">
-                            <label htmlFor="email" className="block mb-2 text-white font-medium text-sm">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                placeholder="your.email@example.com"
-                                className="w-full px-5 py-3.5 bg-[#1a1a24] border border-white/10 rounded-xl text-white focus:outline-none focus:border-purple-500 focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] transition-all duration-300 placeholder:text-gray-600"
-                            />
-                        </div>
-
-                        <div className="mb-6">
-                            <label htmlFor="subject" className="block mb-2 text-white font-medium text-sm">Subject</label>
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                value={formData.subject}
-                                onChange={handleChange}
-                                required
-                                placeholder="What's this about?"
-                                className="w-full px-5 py-3.5 bg-[#1a1a24] border border-white/10 rounded-xl text-white focus:outline-none focus:border-purple-500 focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] transition-all duration-300 placeholder:text-gray-600"
-                            />
-                        </div>
-
-                        <div className="mb-6">
-                            <label htmlFor="message" className="block mb-2 text-white font-medium text-sm">Message</label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                value={formData.message}
-                                onChange={handleChange}
-                                required
-                                rows="5"
-                                placeholder="Tell me about your project..."
-                                className="w-full px-5 py-3.5 bg-[#1a1a24] border border-white/10 rounded-xl text-white focus:outline-none focus:border-purple-500 focus:shadow-[0_0_0_3px_rgba(102,126,234,0.1)] transition-all duration-300 resize-y min-h-[120px] placeholder:text-gray-600"
-                            ></textarea>
-                        </div>
-
-                        <button type="submit" className="btn btn-primary w-full justify-center mt-4 text-lg">
-                            Send Message
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <line x1="22" y1="2" x2="11" y2="13" />
-                                <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                            </svg>
-                        </button>
-                    </form>
+                    ))}
                 </div>
             </div>
         </section>

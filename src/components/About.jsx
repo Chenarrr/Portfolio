@@ -23,17 +23,9 @@ const About = () => {
                             React, Flutter, and the MERN stack.
                         </p>
 
-                        <p className="text-gray-300 leading-relaxed">
-                            Currently, I'm expanding my expertise through my internship at the <strong className="text-gradient">AI Centre at UKH</strong>,
-                            where I apply UI/UX principles and collaborate with cross-functional teams to develop
-                            intuitive web interfaces.
-                        </p>
-
                         <div className="space-y-4 mt-8">
                             {[
-                                { icon: '🎓', title: 'Education', text: 'Software Engineering\nUniversity of Kurdistan', year: '2021 - 2026' },
-                                { icon: '📍', title: 'Location', text: 'Erbil, Iraq' },
-                                { icon: '💼', title: 'Focus Areas', text: 'Web Development\nMobile Apps\nUI/UX Design' }
+                                { icon: '🎓', title: 'Education', text: 'Software Engineering\nUniversity of Kurdistan', year: '2021 - 2026' }
                             ].map((item, index) => (
                                 <div key={index} className="flex gap-4 p-6 bg-[rgba(26,26,36,0.6)] backdrop-blur-lg border border-white/10 rounded-xl hover:translate-x-2 hover:border-purple-500/50 hover:shadow-lg transition-all duration-300">
                                     <div className="text-4xl min-w-[50px] flex items-center justify-center">{item.icon}</div>

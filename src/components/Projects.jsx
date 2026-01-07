@@ -8,7 +8,7 @@ const Projects = () => {
             tech: ['React', 'Tailwind CSS', 'JavaScript'],
             gradient: 'from-purple-500 to-purple-800',
             icon: '💪',
-            github: '#',
+            github: 'https://github.com/Chenarrr/GYM_WebAPP_FrontEnd',
             live: '#'
         },
         {
@@ -17,7 +17,7 @@ const Projects = () => {
             tech: ['HTML', 'Tailwind CSS', 'Express.js', 'MongoDB'],
             gradient: 'from-pink-500 to-red-500',
             icon: '💰',
-            github: '#',
+            github: 'https://github.com/Chenarrr/expense-web',
             live: '#'
         },
         {
@@ -26,7 +26,7 @@ const Projects = () => {
             tech: ['Flutter', 'Dart', 'Firebase'],
             gradient: 'from-blue-400 to-cyan-400',
             icon: '🔍',
-            github: '#',
+            github: 'https://github.com/Chenarrr/Lost-and-Found-with-Flutter-',
             live: '#'
         }
     ];
