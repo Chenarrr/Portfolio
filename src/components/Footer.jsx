@@ -44,8 +44,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 mb-8">
                     <div className="space-y-4">
                         <h3 className="text-3xl font-bold font-display">
-                            <span className="text-gradient">Chenar</span>
-                            <span className="text-pink-500">.</span>
+                            <span className="text-gradient">Chenar's Profile</span>
                         </h3>
                         <p className="text-gray-400 max-w-sm">
                             Building digital experiences with passion and precision

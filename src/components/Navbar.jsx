@@ -35,8 +35,7 @@ const Navbar = ({ activeSection }) => {
             }`}>
             <div className="container flex justify-between items-center">
                 <div className="text-3xl font-bold font-display cursor-pointer transition-transform hover:scale-105">
-                    <span className="text-gradient">Chenar</span>
-                    <span className="text-pink-500 animate-pulse">.</span>
+                    <span className="text-gradient">Chenar's Profile</span>
                 </div>
 
                 <div className={`flex gap-8 items-center max-md:fixed max-md:top-[70px] max-md:left-0 max-md:w-full max-md:flex-col max-md:bg-[rgba(13,13,26,0.98)] max-md:backdrop-blur-lg max-md:p-8 max-md:gap-6 max-md:border-b max-md:border-white/10 max-md:transition-transform max-md:duration-300 ${menuOpen ? 'max-md:translate-x-0' : 'max-md:-translate-x-full'
