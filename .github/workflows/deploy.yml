@@ -1,28 +1,38 @@
+# The name of the process that shows up in the "Actions" tab on GitHub
 name: Deploy to GitHub Pages
 
+# WHEN should this run?
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to the main branch
+      - main  # Only run when code is pushed to the 'main' branch
 
+# GIVE GITHUB PERMISSION to write files back into your repository
 permissions:
   contents: write
 
+# The actual work to do
 jobs:
   build-and-deploy:
+    # Use a free Linux computer (Ubuntu) provided by GitHub
     runs-on: ubuntu-latest
 
     steps:
+      # STEP 1: Download your code from GitHub onto this virtual Linux computer
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
+      # STEP 2: Install dependencies (node_modules) and build the project
+      # This creates the 'dist' folder with your finished website
       - name: Install and Build 🔧
         run: |
           npm install
           npm run build
 
+      # STEP 3: Take the 'dist' folder and push it to the 'gh-pages' branch
+      # This is the "magic" part that makes the site go live
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist # The folder the action should deploy.
-          branch: gh-pages # The branch the action should deploy to.
+          folder: dist # Tell the robot which folder to upload (Vite puts code in 'dist')
+          branch: gh-pages # Tell the robot which branch to push the files to
