@@ -23,6 +23,12 @@ npm run build
 
 The output will be in the `dist` folder.
 
+## Deploying to Netlify
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+- No custom base path is needed; the app should be served from `/`
+
 ## Tech Stack
 
 - React
