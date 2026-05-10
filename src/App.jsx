@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 
 function App() {
     const [activeSection, setActiveSection] = useState('home');
+    const [scrollProgress, setScrollProgress] = useState(0);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -25,8 +26,10 @@ function App() {
                     }
                 }
             }
+            const totalHeight = document.body.scrollHeight - window.innerHeight;
+            setScrollProgress(totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -50,6 +53,20 @@ function App() {
 
     return (
         <div>
+            {/* Scroll progress bar */}
+            <div
+                style={{
+                    position: 'fixed',
+                    top: 0,
+                    left: 0,
+                    height: '2px',
+                    width: `${scrollProgress}%`,
+                    background: 'linear-gradient(90deg, #C9A84C, #D4B55E)',
+                    zIndex: 100,
+                    transition: 'width 0.1s linear',
+                    transformOrigin: 'left',
+                }}
+            />
             <Navbar activeSection={activeSection} />
             <Hero />
             <About />

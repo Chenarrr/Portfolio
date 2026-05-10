@@ -16,12 +16,16 @@ const Footer = () => {
             }}
         >
             <div className="container flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div className="flex flex-col gap-1">
+                <div className="flex flex-col gap-1.5">
                     <p className="font-sans text-xs tracking-wide" style={{ color: '#3D3D46' }}>
                         © {currentYear} Chenar Abdulrazaq
                     </p>
-                    <p className="font-mono text-[10px]" style={{ color: '#222228' }}>
-                        # it works on my cluster
+                    <p
+                        className="font-mono text-[10px] tracking-wide"
+                        style={{ color: '#1E1E24' }}
+                        title="it works on my cluster"
+                    >
+                        git push --force
                     </p>
                 </div>
                 <div className="flex items-center gap-6">

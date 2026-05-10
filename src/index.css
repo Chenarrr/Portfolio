@@ -17,6 +17,7 @@
     background-color: #07070A;
     color: #EFEFEC;
     @apply font-sans leading-relaxed overflow-x-hidden antialiased;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -96,6 +97,11 @@
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #4CAF50; }
+  50% { opacity: 0.5; box-shadow: 0 0 3px #4CAF50; }
 }
 
 /* Scrollbar */

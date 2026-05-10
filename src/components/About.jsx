@@ -35,8 +35,8 @@ const About = () => {
                             </p>
                             <p>
                                 Hands-on with k3s clusters, Flux CD, Cilium eBPF networking, Ansible provisioning,
-                                and secrets management. I also code across frontend, backend, and mobile —
-                                which means I understand exactly what I'm deploying and why it breaks at 3 AM.
+                                and secrets management. I code across frontend, backend, and mobile too —
+                                which means I know exactly what I'm deploying and why it breaks at 3 AM.
                             </p>
                             <p>
                                 Published{' '}
@@ -44,6 +44,24 @@ const About = () => {
                                 {' '}on Kubernetes in UKH Voice magazine. Graduating 2026 from the{' '}
                                 <span style={{ color: '#EFEFEC' }}>University of Kurdistan Hewlêr</span>.
                             </p>
+                        </div>
+
+                        {/* Currently */}
+                        <div
+                            className="mt-8 flex items-center gap-3"
+                        >
+                            <span
+                                style={{
+                                    width: 7, height: 7, borderRadius: '50%',
+                                    background: '#4CAF50',
+                                    boxShadow: '0 0 8px #4CAF50',
+                                    display: 'inline-block',
+                                    animation: 'pulse 2s ease-in-out infinite',
+                                }}
+                            />
+                            <span className="font-mono text-xs" style={{ color: '#6B6B76' }}>
+                                Currently: expanding chenar.space homelab &amp; final year thesis
+                            </span>
                         </div>
 
                         {/* Dev humor #1 */}
