@@ -36,7 +36,7 @@ const HeroCanvas = () => {
             positions[i * 3 + 1] = (Math.random() - 0.5) * 26;
             positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
 
-            const c = Math.random() < 0.22 ? amber : soft;
+            const c = Math.random() < 0.32 ? amber : soft;
             colors[i * 3]     = c.r;
             colors[i * 3 + 1] = c.g;
             colors[i * 3 + 2] = c.b;
@@ -47,10 +47,10 @@ const HeroCanvas = () => {
         geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
         const mat = new THREE.PointsMaterial({
-            size: 0.055,
+            size: 0.07,
             vertexColors: true,
             transparent: true,
-            opacity: 0.45,
+            opacity: 0.65,
             sizeAttenuation: true,
         });
 
@@ -63,11 +63,23 @@ const HeroCanvas = () => {
             color: '#C9A84C',
             wireframe: true,
             transparent: true,
-            opacity: 0.06,
+            opacity: 0.14,
         });
         const ico = new THREE.Mesh(icoGeo, icoMat);
         ico.position.set(6, 0, -2);
         scene.add(ico);
+
+        // Second faint icosahedron behind text area
+        const ico2Geo = new THREE.IcosahedronGeometry(3.2, 1);
+        const ico2Mat = new THREE.MeshBasicMaterial({
+            color: '#C9A84C',
+            wireframe: true,
+            transparent: true,
+            opacity: 0.05,
+        });
+        const ico2 = new THREE.Mesh(ico2Geo, ico2Mat);
+        ico2.position.set(-5, 1, -4);
+        scene.add(ico2);
 
         // --- Mouse parallax ---
         let mx = 0, my = 0;
@@ -100,6 +112,8 @@ const HeroCanvas = () => {
 
             ico.rotation.y = t * 0.07;
             ico.rotation.x = t * 0.04;
+            ico2.rotation.y = -t * 0.05;
+            ico2.rotation.z = t * 0.03;
 
             camera.position.x += (mx * 1.2 - camera.position.x) * 0.028;
             camera.position.y += (-my * 0.7 - camera.position.y) * 0.028;
@@ -117,6 +131,8 @@ const HeroCanvas = () => {
             mat.dispose();
             icoGeo.dispose();
             icoMat.dispose();
+            ico2Geo.dispose();
+            ico2Mat.dispose();
             renderer.dispose();
         };
     }, []);

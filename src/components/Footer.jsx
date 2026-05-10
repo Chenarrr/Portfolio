@@ -16,9 +16,14 @@ const Footer = () => {
             }}
         >
             <div className="container flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p className="font-sans text-xs tracking-wide" style={{ color: '#3D3D46' }}>
-                    © {currentYear} Chenar Abdulrazaq
-                </p>
+                <div className="flex flex-col gap-1">
+                    <p className="font-sans text-xs tracking-wide" style={{ color: '#3D3D46' }}>
+                        © {currentYear} Chenar Abdulrazaq
+                    </p>
+                    <p className="font-mono text-[10px]" style={{ color: '#222228' }}>
+                        # it works on my cluster
+                    </p>
+                </div>
                 <div className="flex items-center gap-6">
                     <a
                         href="https://github.com/Chenarrr"

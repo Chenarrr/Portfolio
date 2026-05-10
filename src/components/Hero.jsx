@@ -24,7 +24,7 @@ const Hero = () => {
                                 className="font-sans text-xs tracking-[0.2em] uppercase"
                                 style={{ color: '#C9A84C' }}
                             >
-                                Software Engineer
+                                DevOps Engineer
                             </span>
                         </div>
 
@@ -48,9 +48,9 @@ const Hero = () => {
                             className="font-sans text-lg leading-relaxed max-w-lg mb-10"
                             style={{ color: '#ADADB8' }}
                         >
-                            Full-stack engineer with experience across frontend, backend,
-                            mobile, DevOps, and cloud-native infrastructure. Graduating
-                            2026 from the University of Kurdistan Hewlêr. Based in Erbil, Iraq.
+                            DevOps engineer who automates everything — clusters, pipelines,
+                            and the occasional existential crisis. Graduating 2026 from the
+                            University of Kurdistan Hewlêr. Based in Erbil, Iraq.
                         </p>
 
                         <div className="flex flex-wrap gap-3 mb-12">
@@ -134,73 +134,62 @@ const Hero = () => {
                                 <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,255,255,0.1)' }} />
                                 <span style={{ width: 10, height: 10, borderRadius: '50%', background: 'rgba(255,255,255,0.1)' }} />
                                 <span className="font-mono text-[10px] tracking-wide ml-3" style={{ color: '#3D3D46' }}>
-                                    developer.ts
+                                    engineer.yaml
                                 </span>
                             </div>
 
                             {/* Code */}
                             <div className="font-mono text-sm leading-7 p-6">
                                 <div style={{ color: '#3D3D46' }}>
-                                    const{' '}
-                                    <span style={{ color: '#C9A84C' }}>developer</span>
-                                    {' = {'}
+                                    <span style={{ color: '#C9A84C' }}>apiVersion</span>
+                                    <span style={{ color: '#6B6B76' }}>: </span>
+                                    <span style={{ color: '#ADADB8' }}>humans/v1</span>
                                 </div>
-                                <div className="pl-5 space-y-px">
-                                    <div>
-                                        <span style={{ color: '#ADADB8' }}>name</span>
-                                        <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#8A9BAD' }}>"Chenar Abdulrazaq"</span>
-                                        <span style={{ color: '#6B6B76' }}>,</span>
-                                    </div>
-                                    <div>
-                                        <span style={{ color: '#ADADB8' }}>role</span>
-                                        <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#8A9BAD' }}>"Software Engineer"</span>
-                                        <span style={{ color: '#6B6B76' }}>,</span>
-                                    </div>
-                                    <div>
-                                        <span style={{ color: '#ADADB8' }}>location</span>
-                                        <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#8A9BAD' }}>"Erbil, Iraq"</span>
-                                        <span style={{ color: '#6B6B76' }}>,</span>
-                                    </div>
-                                    <div>
-                                        <span style={{ color: '#ADADB8' }}>stack</span>
-                                        <span style={{ color: '#6B6B76' }}>: [</span>
-                                    </div>
-                                    <div className="pl-5">
-                                        <span style={{ color: '#8A9BAD' }}>"React / Next.js"</span>
-                                        <span style={{ color: '#6B6B76' }}>,</span>
-                                    </div>
-                                    <div className="pl-5">
-                                        <span style={{ color: '#8A9BAD' }}>"Flutter"</span>
-                                        <span style={{ color: '#6B6B76' }}>,</span>
-                                    </div>
-                                    <div className="pl-5">
-                                        <span style={{ color: '#8A9BAD' }}>"Node.js / Express"</span>
-                                        <span style={{ color: '#6B6B76' }}>,</span>
-                                    </div>
-                                    <div className="pl-5">
-                                        <span style={{ color: '#8A9BAD' }}>"Kubernetes / Helm"</span>
-                                    </div>
-                                    <div>
-                                        <span style={{ color: '#6B6B76' }}>],</span>
-                                    </div>
-                                    <div>
-                                        <span style={{ color: '#ADADB8' }}>available</span>
-                                        <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#C9A84C' }}>true</span>
-                                        <span style={{ color: '#6B6B76' }}>,</span>
-                                    </div>
-                                    <div>
-                                        <span style={{ color: '#ADADB8' }}>graduation</span>
-                                        <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#C9A84C' }}>2026</span>
-                                    </div>
+                                <div style={{ color: '#C9A84C' }}>kind<span style={{ color: '#6B6B76' }}>: </span><span style={{ color: '#ADADB8' }}>DevOpsEngineer</span></div>
+                                <div style={{ color: '#C9A84C' }}>metadata<span style={{ color: '#6B6B76' }}>:</span></div>
+                                <div className="pl-5">
+                                    <span style={{ color: '#C9A84C' }}>name</span>
+                                    <span style={{ color: '#6B6B76' }}>: </span>
+                                    <span style={{ color: '#ADADB8' }}>chenar-abdulrazaq</span>
                                 </div>
-                                <div style={{ color: '#3D3D46' }}>{'}'}</div>
+                                <div className="pl-5">
+                                    <span style={{ color: '#C9A84C' }}>location</span>
+                                    <span style={{ color: '#6B6B76' }}>: </span>
+                                    <span style={{ color: '#ADADB8' }}>erbil-iraq</span>
+                                </div>
+                                <div style={{ color: '#C9A84C' }}>spec<span style={{ color: '#6B6B76' }}>:</span></div>
+                                <div className="pl-5">
+                                    <span style={{ color: '#C9A84C' }}>stack</span>
+                                    <span style={{ color: '#6B6B76' }}>:</span>
+                                </div>
+                                <div className="pl-10">
+                                    <span style={{ color: '#6B6B76' }}>- </span>
+                                    <span style={{ color: '#ADADB8' }}>k3s / Kubernetes</span>
+                                </div>
+                                <div className="pl-10">
+                                    <span style={{ color: '#6B6B76' }}>- </span>
+                                    <span style={{ color: '#ADADB8' }}>Flux CD / Argo CD</span>
+                                </div>
+                                <div className="pl-10">
+                                    <span style={{ color: '#6B6B76' }}>- </span>
+                                    <span style={{ color: '#ADADB8' }}>Docker / Helm</span>
+                                </div>
+                                <div className="pl-10">
+                                    <span style={{ color: '#6B6B76' }}>- </span>
+                                    <span style={{ color: '#ADADB8' }}>Ansible / Terraform</span>
+                                </div>
+                                <div className="pl-5 mt-1">
+                                    <span style={{ color: '#C9A84C' }}>available</span>
+                                    <span style={{ color: '#6B6B76' }}>: </span>
+                                    <span style={{ color: '#C9A84C' }}>true</span>
+                                </div>
+                                <div className="pl-5">
+                                    <span style={{ color: '#C9A84C' }}>graduating</span>
+                                    <span style={{ color: '#6B6B76' }}>: </span>
+                                    <span style={{ color: '#ADADB8' }}>2026</span>
+                                </div>
                                 <div className="mt-4 flex items-center gap-1" style={{ color: '#3D3D46' }}>
-                                    <span>//</span>
+                                    <span>#</span>
                                     <span
                                         style={{
                                             display: 'inline-block',
@@ -219,10 +208,42 @@ const Hero = () => {
                 </div>
             </div>
 
+            {/* Scroll indicator */}
+            <div
+                style={{
+                    position: 'absolute',
+                    bottom: '2rem',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    gap: '6px',
+                    zIndex: 1,
+                }}
+            >
+                <span className="font-mono text-[10px] tracking-[0.2em] uppercase" style={{ color: '#3D3D46' }}>scroll</span>
+                <div style={{ animation: 'scrollBounce 1.8s ease-in-out infinite' }}>
+                    <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+                        <rect x="4.5" y="2" width="3" height="6" rx="1.5" fill="#C9A84C" opacity="0.6" style={{ animation: 'scrollDot 1.8s ease-in-out infinite' }} />
+                        <rect x="0.5" y="0.5" width="11" height="19" rx="5.5" stroke="rgba(255,255,255,0.15)" />
+                    </svg>
+                </div>
+            </div>
+
             <style>{`
                 @keyframes blink {
                     0%, 100% { opacity: 0.8; }
                     50% { opacity: 0; }
+                }
+                @keyframes scrollBounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(5px); }
+                }
+                @keyframes scrollDot {
+                    0% { transform: translateY(0); opacity: 0.6; }
+                    50% { transform: translateY(4px); opacity: 1; }
+                    100% { transform: translateY(0); opacity: 0.6; }
                 }
             `}</style>
         </section>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const About = () => {
     const stats = [
-        { number: '5+', label: 'Projects Built' },
+        { number: '5+', label: 'Projects Shipped' },
         { number: '3', label: 'Work Roles' },
         { number: '30+', label: 'Technologies' },
         { number: '2026', label: 'Graduating' },
@@ -23,26 +23,46 @@ const About = () => {
                             className="font-display font-light leading-tight mb-8"
                             style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#EFEFEC' }}
                         >
-                            Building software<br />
-                            <span className="italic" style={{ color: '#6B6B76' }}>with purpose</span>
+                            Infrastructure first,<br />
+                            <span className="italic" style={{ color: '#6B6B76' }}>everything else second</span>
                         </h2>
 
                         <div className="space-y-5 font-sans text-base leading-relaxed" style={{ color: '#ADADB8' }}>
                             <p>
-                                Software engineer with hands-on experience across frontend, backend,
-                                mobile, DevOps, and infrastructure. Comfortable with cloud-native tooling,
-                                Linux systems, and CI/CD automation. Graduating 2026 from the{' '}
-                                <span style={{ color: '#EFEFEC' }}>University of Kurdistan Hewlêr</span>.
+                                DevOps engineer focused on cloud-native infrastructure, GitOps automation,
+                                and Kubernetes-based delivery systems. I build the platforms that let
+                                developers ship without thinking about the platform.
                             </p>
                             <p>
-                                I leverage AI-assisted development to ship faster and adapt quickly
-                                to new stacks. Published <em style={{ color: '#EFEFEC' }}>'From Code to Cluster'</em> on
-                                Kubernetes in UKH Voice magazine.
+                                Hands-on with k3s clusters, Flux CD, Cilium eBPF networking, Ansible provisioning,
+                                and secrets management. I also code across frontend, backend, and mobile —
+                                which means I understand exactly what I'm deploying and why it breaks at 3 AM.
+                            </p>
+                            <p>
+                                Published{' '}
+                                <em style={{ color: '#EFEFEC' }}>'From Code to Cluster'</em>
+                                {' '}on Kubernetes in UKH Voice magazine. Graduating 2026 from the{' '}
+                                <span style={{ color: '#EFEFEC' }}>University of Kurdistan Hewlêr</span>.
+                            </p>
+                        </div>
+
+                        {/* Dev humor #1 */}
+                        <div
+                            className="mt-10 p-5 reveal"
+                            style={{
+                                background: '#0D0D10',
+                                border: '1px solid rgba(255,255,255,0.05)',
+                                borderLeft: '3px solid rgba(201,168,76,0.4)',
+                            }}
+                        >
+                            <p className="font-mono text-xs" style={{ color: '#3D3D46' }}>$ kubectl get feelings</p>
+                            <p className="font-mono text-xs mt-1" style={{ color: '#C9A84C' }}>
+                                No resources found in production namespace.
                             </p>
                         </div>
 
                         <div
-                            className="mt-10 p-6 reveal"
+                            className="mt-6 p-6 reveal"
                             style={{
                                 background: '#0D0D10',
                                 border: '1px solid rgba(201,168,76,0.15)',

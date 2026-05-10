@@ -4,26 +4,26 @@ const Projects = () => {
     const projects = [
         {
             number: '01',
-            title: 'Find It — Lost & Found Platform',
-            description:
-                'Cross-platform mobile app for reporting and recovering lost items. Firebase Auth, real-time listeners, image upload, and push notifications. Graduation thesis project.',
-            tech: ['Flutter', 'Firebase', 'Firestore', 'FCM', 'Cloud Functions'],
-            github: 'https://github.com/Chenarrr/Lost-and-Found-with-Flutter-',
-        },
-        {
-            number: '02',
             title: 'Home Lab — chenar.space',
             description:
-                '2-node Hetzner cluster (k3s + Ubuntu) provisioned via Ansible. Cilium eBPF networking, Traefik v3 ingress, Flux CD v2 GitOps with auto-sync, cert-manager for TLS, and Infisical for secrets. Apps deploy to subdomains automatically. EchoVote runs in production here.',
+                '2-node Hetzner cluster (k3s + Ubuntu) provisioned with Ansible. Cilium eBPF networking, Traefik v3 ingress, Flux CD v2 GitOps with auto-sync, cert-manager for TLS, and Infisical for secrets. Apps auto-deploy to subdomains on every push. EchoVote runs in production here.',
             tech: ['k3s', 'Ansible', 'Flux CD', 'Traefik', 'Cilium', 'Infisical', 'Hetzner'],
             github: 'https://github.com/Chenarrr/HomeLab_chenar',
             live: 'https://chenar.space',
         },
         {
+            number: '02',
+            title: 'Find It — Lost & Found Platform',
+            description:
+                'Cross-platform mobile app for reporting and recovering lost items. Firebase Auth, real-time Firestore listeners, image upload to Cloud Storage, and push notifications via FCM. Graduation thesis project.',
+            tech: ['Flutter', 'Firebase', 'Firestore', 'FCM', 'Cloud Functions'],
+            github: 'https://github.com/Chenarrr/Lost-and-Found-with-Flutter-',
+        },
+        {
             number: '03',
             title: 'Expense Tracker',
             description:
-                'Full-stack expense tracker with RESTful API, session handling, weekly summaries, and responsive UI.',
+                'Full-stack expense tracker with RESTful API, session-based auth, weekly spending summaries, and a fully responsive UI. Built during my web dev internship to scratch my own itch.',
             tech: ['Express.js', 'MongoDB', 'Tailwind CSS'],
             github: 'https://github.com/Chenarrr/expense-web',
         },
@@ -31,7 +31,7 @@ const Projects = () => {
             number: '04',
             title: 'Workout Tracker',
             description:
-                'Web app generating personalised workout plans by training goal. Mobile version in Flutter currently in progress.',
+                'Web app generating personalised workout plans by training goal. A Flutter mobile version is currently in progress — because if it\'s not cross-platform, does it even exist?',
             tech: ['React', 'Tailwind CSS', 'Flutter'],
             github: 'https://github.com/Chenarrr/GYM_WebAPP_FrontEnd',
         },
@@ -39,7 +39,7 @@ const Projects = () => {
             number: '05',
             title: '2D Box-Jump Game',
             description:
-                'Physics-based platformer with procedural obstacles and scoring. 3D assets modelled in Blender. Built with AI-assisted development via Claude Code MCP.',
+                'Physics-based platformer with procedural obstacles and a scoring system. 3D assets modelled in Blender. Built with AI-assisted development via Claude Code MCP — the pipeline has pipelines.',
             tech: ['Unity', 'C#', 'Blender', 'Claude Code MCP'],
             github: 'https://github.com/Chenarrr',
         },
