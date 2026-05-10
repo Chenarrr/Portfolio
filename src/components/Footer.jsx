@@ -3,100 +3,52 @@ import React from 'react';
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
-    const socialLinks = [
-        {
-            name: 'GitHub',
-            url: 'https://github.com/Chenarrr',
-            icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                </svg>
-            )
-        },
-        {
-            name: 'Email',
-            url: 'mailto:chenar.abdulrazaq@ukh.edu.krd',
-            icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                </svg>
-            )
-        },
-        {
-            name: 'Phone',
-            url: 'tel:+9647502265572',
-            icon: (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-            )
-        }
-    ];
-
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     return (
-        <footer className="bg-[#0a0a0f] border-t border-white/10 py-12 mt-16">
-            <div className="container">
-                <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-12 mb-8">
-                    <div className="space-y-4">
-                        <h3 className="text-3xl font-bold font-display">
-                            <span className="text-gradient">Chenar's Profile</span>
-                        </h3>
-                        <p className="text-gray-400 max-w-sm">
-                            Building digital experiences with passion and precision
-                        </p>
-                    </div>
-
-                    <div>
-                        <h4 className="text-white text-lg font-semibold mb-4">Quick Links</h4>
-                        <nav className="flex flex-col gap-3">
-                            {['About', 'Experience', 'Projects', 'Skills', 'Contact'].map((item) => (
-                                <a
-                                    key={item}
-                                    href={`#${item.toLowerCase()}`}
-                                    className="text-gray-400 hover:text-cyan-400 hover:translate-x-1 transition-all duration-300 inline-block text-sm"
-                                >
-                                    {item}
-                                </a>
-                            ))}
-                        </nav>
-                    </div>
-
-                    <div>
-                        <h4 className="text-white text-lg font-semibold mb-4">Connect</h4>
-                        <div className="flex gap-4">
-                            {socialLinks.map((link, index) => (
-                                <a
-                                    key={index}
-                                    href={link.url}
-                                    target={link.url.startsWith('http') ? '_blank' : '_self'}
-                                    rel="noopener noreferrer"
-                                    className="w-11 h-11 flex items-center justify-center bg-[#1a1a24] border border-white/10 rounded-full text-gray-400 hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-800 hover:text-white hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] hover:border-transparent transition-all duration-300"
-                                    aria-label={link.name}
-                                >
-                                    {link.icon}
-                                </a>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-8 border-t border-white/10">
-                    <p className="text-gray-500 text-sm text-center md:text-left">
-                        © {currentYear} Chenar Abdulrazaq. All rights reserved.
-                    </p>
+        <footer
+            className="py-8"
+            style={{
+                borderTop: '1px solid rgba(255,255,255,0.07)',
+                background: '#07070A',
+            }}
+        >
+            <div className="container flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p className="font-sans text-xs tracking-wide" style={{ color: '#3D3D46' }}>
+                    © {currentYear} Chenar Abdulrazaq
+                </p>
+                <div className="flex items-center gap-6">
+                    <a
+                        href="https://github.com/Chenarrr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+                        style={{ color: '#3D3D46' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = '#3D3D46')}
+                    >
+                        GitHub
+                    </a>
+                    <a
+                        href="mailto:chenar.abdulrazaq@ukh.edu.krd"
+                        className="font-sans text-xs tracking-widest uppercase transition-colors duration-200"
+                        style={{ color: '#3D3D46' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = '#3D3D46')}
+                    >
+                        Email
+                    </a>
                     <button
                         onClick={scrollToTop}
-                        className="w-11 h-11 flex items-center justify-center bg-gradient-to-r from-purple-500 to-purple-800 rounded-full text-white hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] transition-all duration-300 shadow-lg"
+                        className="font-sans text-xs tracking-widest uppercase transition-colors duration-200 cursor-pointer"
+                        style={{ color: '#3D3D46' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = '#3D3D46')}
                         aria-label="Back to top"
                     >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M18 15l-6-6-6 6" />
-                        </svg>
+                        Top ↑
                     </button>
                 </div>
             </div>

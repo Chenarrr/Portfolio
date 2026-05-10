@@ -3,82 +3,73 @@ import React from 'react';
 const Skills = () => {
     const skillGroups = [
         {
-            title: 'Frontend Engineering',
-            icon: '🖥️',
-            description: 'Building responsive, performant, and interactive user interfaces.',
-            skills: ['React JS', 'Next.js', 'Vite', 'TypeScript', 'Tailwind CSS', 'Redux / Context API', 'Framer Motion', 'HTML5 / CSS3', 'JavaScript (ES6+)']
+            title: 'Frontend',
+            skills: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript ES6+', 'HTML5', 'CSS3', 'Tailwind CSS'],
         },
         {
-            title: 'Backend Systems',
-            icon: '⚙️',
-            description: 'Designing robust server-side logic and scalable backends.',
-            skills: ['Node.js', 'Express.js', 'Nest JS', 'RESTful APIs', 'GraphQL', 'Prisma / TypeORM', 'Python / Go (Learning)']
+            title: 'Backend',
+            skills: ['Node.js', 'Express.js', 'Nest.js', 'PHP', 'RESTful APIs'],
         },
         {
-            title: 'Data & Security',
-            icon: '🛡️',
-            description: 'Managing complex data structures and secure authentication.',
-            skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Mongoose', 'JWT / OAuth2', 'Bcrypt', 'Database Schema Design']
+            title: 'Mobile',
+            skills: ['Flutter', 'Firebase Auth', 'Firestore', 'FCM', 'Cloud Storage', 'Cloud Functions'],
         },
         {
-            title: 'DevOps & Automation',
-            icon: '🚀',
-            description: 'Automating workflows and managing infrastructure.',
-            skills: ['Docker & Compose', 'GitHub Actions', 'CI/CD Pipelines', 'Linux / Bash Scripting', 'Nginx', 'Vercel / Netlify', 'PM2']
+            title: 'Databases',
+            skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Supabase', 'Redis'],
         },
         {
-            title: 'Systems & Architecture',
-            icon: '🏛️',
-            description: 'Designing for scale, reliability, and maintainability.',
-            skills: ['System Design', 'Microservices', 'Event-Driven Architecture', 'Load Balancing', 'API Gateway', 'Caching Strategies']
+            title: 'DevOps & Cloud',
+            skills: ['Docker', 'Podman', 'Kubernetes', 'Helm', 'Flux CD', 'Argo CD', 'GitHub Actions', 'CI/CD', 'Rancher'],
         },
         {
-            title: 'Tools & Documentation',
-            icon: '🛠️',
-            description: 'Professional development environment and standards.',
-            skills: ['Git / GitHub', 'Postman / Insomnia', 'Docker Desktop', 'Swagger / OpenAPI', 'Agile / Scrum', 'Markdown', 'Unit Testing']
-        }
+            title: 'Systems & Other',
+            skills: ['Linux (Fedora, Ubuntu)', 'Proxmox', 'Bash', 'Git', 'Pulumi', 'Terraform', 'Unity / C#', 'Blender', 'Arduino'],
+        },
     ];
 
     return (
-        <section id="skills" className="section bg-[#0a0a0f] py-24 border-t border-white/5">
-            <div className="container mx-auto px-6">
-                <div className="section-title mb-20 text-center">
-                    <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter uppercase">
-                        Technical Stack
-                    </h2>
-                    <div className="h-1 w-20 bg-white mx-auto mb-8"></div>
-                    <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed font-light">
-                        Full-spectrum engineering capabilities from hardware-adjacent backend logic
-                        to fluid frontend experiences and automated cloud infrastructure.
-                    </p>
+        <section id="skills" className="section" style={{ background: '#0D0D10' }}>
+            <div className="container">
+                <div className="section-label">
+                    <span className="section-number">04</span>
+                    <span className="section-line" />
+                    <span className="section-name">Skills</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <h2
+                    className="font-display font-light leading-tight mb-16"
+                    style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#EFEFEC' }}
+                >
+                    Technical<br />
+                    <span className="italic" style={{ color: '#6B6B76' }}>stack</span>
+                </h2>
+
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px"
+                    style={{ background: 'rgba(255,255,255,0.07)' }}
+                >
                     {skillGroups.map((group, index) => (
                         <div
                             key={index}
-                            className="flex flex-col h-full bg-[#0f0f15] border border-white/5 p-8 hover:bg-[#12121a] hover:border-white/10 transition-all duration-300 group"
+                            className="p-8 reveal"
+                            style={{
+                                background: '#0D0D10',
+                                transition: 'background 0.2s ease, opacity 0.65s ease-out, transform 0.65s ease-out',
+                                transitionDelay: `${index * 0.08}s`,
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.background = '#111116')}
+                            onMouseLeave={(e) => (e.currentTarget.style.background = '#0D0D10')}
                         >
-                            <div className="flex items-center gap-4 mb-4">
-                                <span className="text-2xl opacity-60 group-hover:opacity-100 transition-opacity">
-                                    {group.icon}
-                                </span>
-                                <h3 className="text-xl font-bold text-white tracking-wide uppercase">
-                                    {group.title}
-                                </h3>
-                            </div>
-
-                            <p className="text-gray-500 text-sm mb-8 font-medium leading-normal">
-                                {group.description}
-                            </p>
-
-                            <div className="flex flex-wrap gap-2 mt-auto">
+                            <h3
+                                className="font-sans font-medium text-xs tracking-[0.15em] uppercase mb-6"
+                                style={{ color: '#EFEFEC' }}
+                            >
+                                {group.title}
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
                                 {group.skills.map((skill, i) => (
-                                    <span
-                                        key={i}
-                                        className="px-3 py-1.5 bg-[#1a1a24] border border-white/5 text-gray-400 text-xs font-semibold rounded hover:bg-white hover:text-black hover:border-white transition-all duration-200 cursor-default uppercase tracking-widest"
-                                    >
+                                    <span key={i} className="tag">
                                         {skill}
                                     </span>
                                 ))}
@@ -87,12 +78,6 @@ const Skills = () => {
                     ))}
                 </div>
             </div>
-
-            <style jsx>{`
-                .section-title h2 {
-                    letter-spacing: -0.05em;
-                }
-            `}</style>
         </section>
     );
 };

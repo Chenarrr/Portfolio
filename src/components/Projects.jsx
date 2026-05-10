@@ -3,81 +3,133 @@ import React from 'react';
 const Projects = () => {
     const projects = [
         {
-            title: 'Workout Tracking & Generator',
-            description: 'A comprehensive fitness application focusing on frontend development. Users can select training styles (strength, hypertrophy, endurance) and receive personalized workout plans through custom functions.',
-            tech: ['React', 'Tailwind CSS', 'JavaScript'],
-            gradient: 'from-purple-500 to-purple-800',
-            icon: '💪',
-            github: 'https://github.com/Chenarrr/GYM_WebAPP_FrontEnd',
-            live: '#'
-        },
-        {
-            title: 'Expense Tracking Web App',
-            description: 'Full-stack expense tracker with weekly check-ins. Built to learn and practice backend development and database management with MongoDB. Features user authentication and data visualization.',
-            tech: ['HTML', 'Tailwind CSS', 'Express.js', 'MongoDB'],
-            gradient: 'from-pink-500 to-red-500',
-            icon: '💰',
-            github: 'https://github.com/Chenarrr/expense-web',
-            live: '#'
-        },
-        {
-            title: 'Lost and Found Mobile App',
-            description: 'Cross-platform mobile application with user-friendly design and secure architecture. Features image upload system for efficient item matching and real-time notifications.',
-            tech: ['Flutter', 'Dart', 'Firebase'],
-            gradient: 'from-blue-400 to-cyan-400',
-            icon: '🔍',
+            number: '01',
+            title: 'Find It — Lost & Found Platform',
+            description:
+                'Cross-platform mobile app for reporting and recovering lost items. Firebase Auth, real-time listeners, image upload, and push notifications. Graduation thesis project.',
+            tech: ['Flutter', 'Firebase', 'Firestore', 'FCM', 'Cloud Functions'],
             github: 'https://github.com/Chenarrr/Lost-and-Found-with-Flutter-',
-            live: '#'
-        }
+        },
+        {
+            number: '02',
+            title: 'Home Lab — chenar.space',
+            description:
+                '2-node Hetzner cluster (k3s + Ubuntu) provisioned via Ansible. Cilium eBPF networking, Traefik v3 ingress, Flux CD v2 GitOps with auto-sync, cert-manager for TLS, and Infisical for secrets. Apps deploy to subdomains automatically. EchoVote runs in production here.',
+            tech: ['k3s', 'Ansible', 'Flux CD', 'Traefik', 'Cilium', 'Infisical', 'Hetzner'],
+            github: 'https://github.com/Chenarrr/HomeLab_chenar',
+            live: 'https://chenar.space',
+        },
+        {
+            number: '03',
+            title: 'Expense Tracker',
+            description:
+                'Full-stack expense tracker with RESTful API, session handling, weekly summaries, and responsive UI.',
+            tech: ['Express.js', 'MongoDB', 'Tailwind CSS'],
+            github: 'https://github.com/Chenarrr/expense-web',
+        },
+        {
+            number: '04',
+            title: 'Workout Tracker',
+            description:
+                'Web app generating personalised workout plans by training goal. Mobile version in Flutter currently in progress.',
+            tech: ['React', 'Tailwind CSS', 'Flutter'],
+            github: 'https://github.com/Chenarrr/GYM_WebAPP_FrontEnd',
+        },
+        {
+            number: '05',
+            title: '2D Box-Jump Game',
+            description:
+                'Physics-based platformer with procedural obstacles and scoring. 3D assets modelled in Blender. Built with AI-assisted development via Claude Code MCP.',
+            tech: ['Unity', 'C#', 'Blender', 'Claude Code MCP'],
+            github: 'https://github.com/Chenarrr',
+        },
     ];
 
     return (
-        <section id="projects" className="section bg-[#13131a]">
+        <section id="projects" className="section" style={{ background: '#07070A' }}>
             <div className="container">
-                <div className="section-title">
-                    <h2>Featured Projects</h2>
-                    <p className="text-center max-w-2xl mx-auto text-gray-300 text-lg mt-4">
-                        Here are some of my recent projects showcasing my skills in web and mobile development
-                    </p>
+                <div className="section-label">
+                    <span className="section-number">03</span>
+                    <span className="section-line" />
+                    <span className="section-name">Projects</span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                <h2
+                    className="font-display font-light leading-tight mb-16"
+                    style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#EFEFEC' }}
+                >
+                    Selected<br />
+                    <span className="italic" style={{ color: '#6B6B76' }}>work</span>
+                </h2>
+
+                <div
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px"
+                    style={{ background: 'rgba(255,255,255,0.07)' }}
+                >
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className="card flex flex-col animate-fadeInUp"
-                            style={{ animationDelay: `${index * 0.2}s` }}
+                            className="flex flex-col p-8 reveal"
+                            style={{
+                                background: '#07070A',
+                                transition: 'background 0.2s ease, opacity 0.65s ease-out, transform 0.65s ease-out',
+                                transitionDelay: `${index * 0.1}s`,
+                            }}
+                            onMouseEnter={(e) => (e.currentTarget.style.background = '#0D0D10')}
+                            onMouseLeave={(e) => (e.currentTarget.style.background = '#07070A')}
                         >
-                            <div className={`w-20 h-20 rounded-xl flex items-center justify-center text-4xl mb-6 bg-gradient-to-r ${project.gradient} shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-2xl`}>
-                                {project.icon}
+                            <div className="flex items-center justify-between mb-8">
+                                <span className="font-mono text-xs" style={{ color: '#3D3D46' }}>
+                                    {project.number}
+                                </span>
+                                <div className="flex items-center gap-3">
+                                    {project.live && (
+                                        <a
+                                            href={project.live}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            aria-label="Live site"
+                                            className="font-mono text-[10px] tracking-widest uppercase transition-colors duration-200 flex items-center gap-1"
+                                            style={{ color: '#C9A84C' }}
+                                            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
+                                            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+                                        >
+                                            Live ↗
+                                        </a>
+                                    )}
+                                    <a
+                                        href={project.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        aria-label="GitHub repository"
+                                        className="transition-colors duration-200"
+                                        style={{ color: '#3D3D46' }}
+                                        onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
+                                        onMouseLeave={(e) => (e.currentTarget.style.color = '#3D3D46')}
+                                    >
+                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                            <path d="M7 7h10v10M7 17L17 7" />
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
 
-                            <h3 className="text-2xl text-white font-bold mb-4">{project.title}</h3>
-                            <p className="text-gray-300 leading-relaxed mb-6 flex-grow">{project.description}</p>
+                            <h3 className="font-sans font-medium text-lg mb-4 leading-snug" style={{ color: '#EFEFEC' }}>
+                                {project.title}
+                            </h3>
+                            <p
+                                className="font-sans text-sm leading-relaxed flex-grow mb-8"
+                                style={{ color: '#6B6B76' }}
+                            >
+                                {project.description}
+                            </p>
 
-                            <div className="flex flex-wrap gap-2 mb-6">
+                            <div className="flex flex-wrap gap-2 mt-auto">
                                 {project.tech.map((tech, i) => (
-                                    <span key={i} className="px-3 py-2 bg-[#1a1a24] border border-white/10 rounded-full text-sm text-gray-400 font-medium hover:bg-gradient-to-r hover:from-purple-500 hover:to-purple-800 hover:text-white hover:border-transparent hover:-translate-y-1 transition-all duration-300">
+                                    <span key={i} className="tag">
                                         {tech}
                                     </span>
                                 ))}
-                            </div>
-
-                            <div className="flex gap-4 pt-6 border-t border-white/10">
-                                <a href={project.github} className="flex items-center gap-2 px-5 py-3 border border-white/20 rounded-full text-sm text-gray-400 font-medium hover:text-white hover:border-purple-500 hover:-translate-y-1 transition-all duration-300" target="_blank" rel="noopener noreferrer">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                                    </svg>
-                                    Code
-                                </a>
-                                <a href={project.live} className="flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-purple-500 to-purple-800 rounded-full text-sm text-white font-medium hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(102,126,234,0.4)] transition-all duration-300" target="_blank" rel="noopener noreferrer">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                                        <polyline points="15 3 21 3 21 9" />
-                                        <line x1="10" y1="14" x2="21" y2="3" />
-                                    </svg>
-                                    Live Demo
-                                </a>
                             </div>
                         </div>
                     ))}

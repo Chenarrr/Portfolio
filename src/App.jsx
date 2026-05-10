@@ -15,7 +15,6 @@ function App() {
         const handleScroll = () => {
             const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
             const scrollPosition = window.scrollY + 100;
-
             for (const section of sections) {
                 const element = document.getElementById(section);
                 if (element) {
@@ -27,13 +26,30 @@ function App() {
                 }
             }
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            },
+            { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+        );
+
+        const els = document.querySelectorAll('.reveal');
+        els.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <div className="App">
+        <div>
             <Navbar activeSection={activeSection} />
             <Hero />
             <About />
