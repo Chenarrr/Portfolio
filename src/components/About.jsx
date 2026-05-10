@@ -45,7 +45,7 @@ const About = () => {
                             className="mt-10 p-6 reveal"
                             style={{
                                 background: '#0D0D10',
-                                border: '1px solid rgba(255,255,255,0.07)',
+                                border: '1px solid rgba(201,168,76,0.15)',
                             }}
                         >
                             <div className="flex items-start gap-5">

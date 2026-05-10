@@ -1,4 +1,5 @@
 import React from 'react';
+import WireframeShape from './WireframeShape';
 
 const Skills = () => {
     const skillGroups = [
@@ -29,7 +30,7 @@ const Skills = () => {
     ];
 
     return (
-        <section id="skills" className="section" style={{ background: '#0D0D10' }}>
+        <section id="skills" className="section" style={{ background: '#07070A' }}>
             <div className="container">
                 <div className="section-label">
                     <span className="section-number">04</span>
@@ -37,13 +38,18 @@ const Skills = () => {
                     <span className="section-name">Skills</span>
                 </div>
 
-                <h2
-                    className="font-display font-light leading-tight mb-16"
-                    style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#EFEFEC' }}
-                >
-                    Technical<br />
-                    <span className="italic" style={{ color: '#6B6B76' }}>stack</span>
-                </h2>
+                <div className="flex items-start justify-between mb-16 gap-8">
+                    <h2
+                        className="font-display font-light leading-tight"
+                        style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#EFEFEC' }}
+                    >
+                        Technical<br />
+                        <span className="italic" style={{ color: '#6B6B76' }}>stack</span>
+                    </h2>
+                    <div className="hidden lg:block flex-shrink-0" style={{ marginTop: '-16px' }}>
+                        <WireframeShape width={200} height={200} />
+                    </div>
+                </div>
 
                 <div
                     className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px"
@@ -54,12 +60,12 @@ const Skills = () => {
                             key={index}
                             className="p-8 reveal"
                             style={{
-                                background: '#0D0D10',
+                                background: '#07070A',
                                 transition: 'background 0.2s ease, opacity 0.65s ease-out, transform 0.65s ease-out',
                                 transitionDelay: `${index * 0.08}s`,
                             }}
-                            onMouseEnter={(e) => (e.currentTarget.style.background = '#111116')}
-                            onMouseLeave={(e) => (e.currentTarget.style.background = '#0D0D10')}
+                            onMouseEnter={(e) => (e.currentTarget.style.background = '#0D0D10')}
+                            onMouseLeave={(e) => (e.currentTarget.style.background = '#07070A')}
                         >
                             <h3
                                 className="font-sans font-medium text-xs tracking-[0.15em] uppercase mb-6"

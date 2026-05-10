@@ -1,4 +1,5 @@
 import React from 'react';
+import HeroCanvas from './HeroCanvas';
 
 const Hero = () => {
     const scrollTo = (id) => {
@@ -9,9 +10,10 @@ const Hero = () => {
         <section
             id="home"
             className="min-h-screen flex items-center pt-24 pb-16 relative"
-            style={{ background: '#07070A' }}
+            style={{ background: '#07070A', overflow: 'hidden' }}
         >
-            <div className="container w-full">
+            <HeroCanvas />
+            <div className="container w-full" style={{ position: 'relative', zIndex: 1 }}>
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-16 xl:gap-24 items-center">
 
                     {/* Left: Content */}
@@ -145,55 +147,55 @@ const Hero = () => {
                                 </div>
                                 <div className="pl-5 space-y-px">
                                     <div>
-                                        <span style={{ color: '#6B8BB5' }}>name</span>
+                                        <span style={{ color: '#ADADB8' }}>name</span>
                                         <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#7DBD8F' }}>"Chenar Abdulrazaq"</span>
+                                        <span style={{ color: '#8A9BAD' }}>"Chenar Abdulrazaq"</span>
                                         <span style={{ color: '#6B6B76' }}>,</span>
                                     </div>
                                     <div>
-                                        <span style={{ color: '#6B8BB5' }}>role</span>
+                                        <span style={{ color: '#ADADB8' }}>role</span>
                                         <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#7DBD8F' }}>"Software Engineer"</span>
+                                        <span style={{ color: '#8A9BAD' }}>"Software Engineer"</span>
                                         <span style={{ color: '#6B6B76' }}>,</span>
                                     </div>
                                     <div>
-                                        <span style={{ color: '#6B8BB5' }}>location</span>
+                                        <span style={{ color: '#ADADB8' }}>location</span>
                                         <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#7DBD8F' }}>"Erbil, Iraq"</span>
+                                        <span style={{ color: '#8A9BAD' }}>"Erbil, Iraq"</span>
                                         <span style={{ color: '#6B6B76' }}>,</span>
                                     </div>
                                     <div>
-                                        <span style={{ color: '#6B8BB5' }}>stack</span>
+                                        <span style={{ color: '#ADADB8' }}>stack</span>
                                         <span style={{ color: '#6B6B76' }}>: [</span>
                                     </div>
                                     <div className="pl-5">
-                                        <span style={{ color: '#7DBD8F' }}>"React / Next.js"</span>
+                                        <span style={{ color: '#8A9BAD' }}>"React / Next.js"</span>
                                         <span style={{ color: '#6B6B76' }}>,</span>
                                     </div>
                                     <div className="pl-5">
-                                        <span style={{ color: '#7DBD8F' }}>"Flutter"</span>
+                                        <span style={{ color: '#8A9BAD' }}>"Flutter"</span>
                                         <span style={{ color: '#6B6B76' }}>,</span>
                                     </div>
                                     <div className="pl-5">
-                                        <span style={{ color: '#7DBD8F' }}>"Node.js / Express"</span>
+                                        <span style={{ color: '#8A9BAD' }}>"Node.js / Express"</span>
                                         <span style={{ color: '#6B6B76' }}>,</span>
                                     </div>
                                     <div className="pl-5">
-                                        <span style={{ color: '#7DBD8F' }}>"Kubernetes / Helm"</span>
+                                        <span style={{ color: '#8A9BAD' }}>"Kubernetes / Helm"</span>
                                     </div>
                                     <div>
                                         <span style={{ color: '#6B6B76' }}>],</span>
                                     </div>
                                     <div>
-                                        <span style={{ color: '#6B8BB5' }}>available</span>
+                                        <span style={{ color: '#ADADB8' }}>available</span>
                                         <span style={{ color: '#6B6B76' }}>: </span>
                                         <span style={{ color: '#C9A84C' }}>true</span>
                                         <span style={{ color: '#6B6B76' }}>,</span>
                                     </div>
                                     <div>
-                                        <span style={{ color: '#6B8BB5' }}>graduation</span>
+                                        <span style={{ color: '#ADADB8' }}>graduation</span>
                                         <span style={{ color: '#6B6B76' }}>: </span>
-                                        <span style={{ color: '#B589B7' }}>2026</span>
+                                        <span style={{ color: '#C9A84C' }}>2026</span>
                                     </div>
                                 </div>
                                 <div style={{ color: '#3D3D46' }}>{'}'}</div>

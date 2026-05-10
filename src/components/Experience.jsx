@@ -33,7 +33,7 @@ const Experience = () => {
     ];
 
     return (
-        <section id="experience" className="section" style={{ background: '#0D0D10' }}>
+        <section id="experience" className="section" style={{ background: '#07070A' }}>
             <div className="container">
                 <div className="section-label">
                     <span className="section-number">02</span>
