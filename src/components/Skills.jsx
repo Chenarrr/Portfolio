@@ -5,27 +5,27 @@ const Skills = () => {
     const skillGroups = [
         {
             title: 'DevOps & Cloud',
-            skills: ['Docker', 'Podman', 'Kubernetes', 'k3s', 'Helm', 'Flux CD', 'Argo CD', 'GitHub Actions', 'CI/CD', 'Rancher', 'Ansible', 'Terraform', 'Pulumi'],
+            skills: ['Kubernetes', 'k3s', 'Docker', 'Helm', 'Flux CD', 'Argo CD', 'GitHub Actions', 'Ansible', 'CI/CD Pipelines'],
         },
         {
             title: 'Frontend',
-            skills: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'JavaScript ES6+', 'Tailwind CSS', 'HTML5', 'CSS3'],
+            skills: ['React', 'JavaScript ES6+', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3'],
         },
         {
-            title: 'Backend',
-            skills: ['Node.js', 'Express.js', 'Nest.js', 'PHP', 'RESTful APIs'],
+            title: 'Backend & APIs',
+            skills: ['Node.js', 'Express.js', 'Python', 'RESTful APIs', 'PHP'],
         },
         {
             title: 'Mobile',
-            skills: ['Flutter', 'Firebase Auth', 'Firestore', 'FCM', 'Cloud Storage', 'Cloud Functions'],
+            skills: ['Flutter', 'Firebase Auth', 'Firestore', 'FCM', 'Cloud Storage'],
         },
         {
             title: 'Databases',
-            skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Supabase', 'Redis'],
+            skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis'],
         },
         {
-            title: 'Systems & Other',
-            skills: ['Linux (Fedora, Ubuntu)', 'Proxmox', 'Bash', 'Git', 'Unity / C#', 'Blender', 'Arduino'],
+            title: 'Systems & Tools',
+            skills: ['Linux (Ubuntu / Fedora)', 'Bash', 'Git', 'Proxmox', 'Unity / C#', 'Blender', 'Arduino'],
         },
     ];
 

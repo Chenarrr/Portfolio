@@ -88,23 +88,13 @@ const Hero = () => {
                             </a>
                             <span className="w-px h-4" style={{ background: 'rgba(255,255,255,0.1)' }} />
                             <a
-                                href="mailto:chenar.abdulrazaq@ukh.edu.krd"
-                                className="font-sans text-xs tracking-widest uppercase transition-colors duration-200"
-                                style={{ color: '#6B6B76' }}
-                                onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
-                                onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6B76')}
-                            >
-                                Email
-                            </a>
-                            <span className="w-px h-4" style={{ background: 'rgba(255,255,255,0.1)' }} />
-                            <a
                                 href="tel:+9647502265572"
                                 className="font-sans text-xs tracking-widest uppercase transition-colors duration-200"
                                 style={{ color: '#6B6B76' }}
                                 onMouseEnter={(e) => (e.currentTarget.style.color = '#C9A84C')}
                                 onMouseLeave={(e) => (e.currentTarget.style.color = '#6B6B76')}
                             >
-                                Phone
+                                +964 750 226 5572
                             </a>
                         </div>
                     </div>
@@ -188,18 +178,23 @@ const Hero = () => {
                                     <span style={{ color: '#6B6B76' }}>: </span>
                                     <span style={{ color: '#ADADB8' }}>2026</span>
                                 </div>
-                                <div className="mt-4 flex items-center gap-1" style={{ color: '#3D3D46' }}>
-                                    <span>#</span>
-                                    <span
-                                        style={{
-                                            display: 'inline-block',
-                                            width: 7,
-                                            height: 16,
-                                            background: '#C9A84C',
-                                            opacity: 0.8,
-                                            animation: 'blink 1.1s step-end infinite',
-                                        }}
-                                    />
+                                <div className="mt-4" style={{ color: '#3D3D46' }}>
+                                    <div className="font-mono text-xs mb-2">
+                                        # last_incident: <span style={{ color: '#6B6B76' }}>not my fault</span>
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                        <span>#</span>
+                                        <span
+                                            style={{
+                                                display: 'inline-block',
+                                                width: 7,
+                                                height: 16,
+                                                background: '#C9A84C',
+                                                opacity: 0.8,
+                                                animation: 'blink 1.1s step-end infinite',
+                                            }}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>

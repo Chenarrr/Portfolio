@@ -63,7 +63,7 @@ function App() {
                     width: `${scrollProgress}%`,
                     background: 'linear-gradient(90deg, #C9A84C, #D4B55E)',
                     zIndex: 100,
-                    transition: 'width 0.1s linear',
+                    transition: 'width 0.08s ease-out',
                     transformOrigin: 'left',
                 }}
             />

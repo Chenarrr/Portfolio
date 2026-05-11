@@ -64,20 +64,6 @@ const About = () => {
                             </span>
                         </div>
 
-                        {/* Dev humor #1 */}
-                        <div
-                            className="mt-10 p-5 reveal"
-                            style={{
-                                background: '#0D0D10',
-                                border: '1px solid rgba(255,255,255,0.05)',
-                                borderLeft: '3px solid rgba(201,168,76,0.4)',
-                            }}
-                        >
-                            <p className="font-mono text-xs" style={{ color: '#3D3D46' }}>$ kubectl get feelings</p>
-                            <p className="font-mono text-xs mt-1" style={{ color: '#C9A84C' }}>
-                                No resources found in production namespace.
-                            </p>
-                        </div>
 
                         <div
                             className="mt-6 p-6 reveal"
