@@ -49,10 +49,10 @@ const HeroCanvas = () => {
         const icoX = isWide ? 5 : 6;
 
         // Main icosahedron
-        const icoGeo = new THREE.IcosahedronGeometry(10.6, 1);
+        const icoGeo = new THREE.IcosahedronGeometry(2.6, 1);
         const icoMat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: icoOpacity });
         const ico = new THREE.Mesh(icoGeo, icoMat);
-        ico.position.set(icoX, -1, -1.5);
+        ico.position.set(icoX, -0.5, -1);
         scene.add(ico);
 
         // Second icosahedron — accent
@@ -66,8 +66,8 @@ const HeroCanvas = () => {
         let mx = 0, my = 0;
         let tx = 0, ty = 0;
         const onMouse = (e) => {
-            mx = (e.clientX / window.innerWidth - 0.5) * 2;
-            my = (e.clientY / window.innerHeight - 0.5) * 2;
+            mx = (e.clientX / window.innerWidth - 0.7) * 2;
+            my = (e.clientY / window.innerHeight - 0.7) * 2;
         };
         window.addEventListener('mousemove', onMouse);
 
