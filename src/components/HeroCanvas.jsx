@@ -43,18 +43,23 @@ const HeroCanvas = () => {
         const points = new THREE.Points(geo, mat);
         scene.add(points);
 
-        // Main icosahedron — right side, behind YAML card
-        const icoGeo = new THREE.IcosahedronGeometry(4.5, 1);
-        const icoMat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: 0.13 });
+        // Responsive ico placement — right side on desktop, less dominant on mobile
+        const isWide = window.innerWidth >= 1024;
+        const icoOpacity = isWide ? 0.20 : 0.10;
+        const icoX = isWide ? 5 : 6;
+
+        // Main icosahedron
+        const icoGeo = new THREE.IcosahedronGeometry(4.6, 1);
+        const icoMat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: icoOpacity });
         const ico = new THREE.Mesh(icoGeo, icoMat);
-        ico.position.set(7, 0, -1);
+        ico.position.set(icoX, -0.5, -1.5);
         scene.add(ico);
 
-        // Second icosahedron — far right, no text overlap
-        const ico2Geo = new THREE.IcosahedronGeometry(2.8, 1);
-        const ico2Mat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: 0.05 });
+        // Second icosahedron — accent
+        const ico2Geo = new THREE.IcosahedronGeometry(2.0, 1);
+        const ico2Mat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: 0.10 });
         const ico2 = new THREE.Mesh(ico2Geo, ico2Mat);
-        ico2.position.set(12, -2, -5);
+        ico2.position.set(-8, -3, -2);
         scene.add(ico2);
 
         // Mouse parallax
