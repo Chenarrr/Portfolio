@@ -20,18 +20,18 @@ const HeroCanvas = () => {
         renderer.setSize(W, H, false);
         renderer.setClearColor(0x000000, 0);
 
-        // Particles
-        const COUNT = 420;
+        // Dreamy particle field — warm amber + warm cream, soft size attenuation
+        const COUNT = 380;
         const positions = new Float32Array(COUNT * 3);
         const colors = new Float32Array(COUNT * 3);
         const amber = new THREE.Color('#C9A84C');
-        const soft = new THREE.Color('#5A5A6A');
+        const cream = new THREE.Color('#8A8170');
 
         for (let i = 0; i < COUNT; i++) {
             positions[i * 3]     = (Math.random() - 0.5) * 44;
             positions[i * 3 + 1] = (Math.random() - 0.5) * 28;
             positions[i * 3 + 2] = (Math.random() - 0.5) * 22;
-            const c = Math.random() < 0.28 ? amber : soft;
+            const c = Math.random() < 0.30 ? amber : cream;
             colors[i * 3] = c.r; colors[i * 3 + 1] = c.g; colors[i * 3 + 2] = c.b;
         }
 
@@ -39,32 +39,36 @@ const HeroCanvas = () => {
         geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         geo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
 
-        const mat = new THREE.PointsMaterial({ size: 0.07, vertexColors: true, transparent: true, opacity: 0.65, sizeAttenuation: true });
+        const mat = new THREE.PointsMaterial({
+            size: 0.07,
+            vertexColors: true,
+            transparent: true,
+            opacity: 0.55,
+            sizeAttenuation: true,
+        });
         const points = new THREE.Points(geo, mat);
         scene.add(points);
 
-        // Responsive ico placement — right side on desktop, less dominant on mobile
+        // Single dreamy icosahedron — exact starting place the user loved
         const isWide = window.innerWidth >= 1024;
-        const icoOpacity = isWide ? 0.20 : 0.10;
-        const icoX = isWide ? 5 : 6;
+        const icoOpacity = isWide ? 0.11 : 0.08;
+        const icoBaseX = isWide ? 7 : 3;
+        const icoBaseY = 4;
+        const icoBaseZ = -20;
 
-        // Main icosahedron
-        const icoGeo = new THREE.IcosahedronGeometry(2.6, 1);
-        const icoMat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: icoOpacity });
+        const icoGeo = new THREE.IcosahedronGeometry(11, 1);
+        const icoMat = new THREE.MeshBasicMaterial({
+            color: '#B5AC8A',
+            wireframe: true,
+            transparent: true,
+            opacity: icoOpacity,
+        });
         const ico = new THREE.Mesh(icoGeo, icoMat);
-        ico.position.set(icoX, 1, -1);
+        ico.position.set(icoBaseX, icoBaseY, icoBaseZ);
         scene.add(ico);
 
-        // Second icosahedron — accent
-        const ico2Geo = new THREE.IcosahedronGeometry(2.0, 1);
-        const ico2Mat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: 0.10 });
-        const ico2 = new THREE.Mesh(ico2Geo, ico2Mat);
-        ico2.position.set(-8, -3, -2);
-        scene.add(ico2);
-
-        // Mouse parallax
+        // Mouse tracking
         let mx = 0, my = 0;
-        let tx = 0, ty = 0;
         const onMouse = (e) => {
             mx = (e.clientX / window.innerWidth - 0.5) * 2;
             my = (e.clientY / window.innerHeight - 0.5) * 2;
@@ -82,23 +86,41 @@ const HeroCanvas = () => {
         let rafId;
         const t0 = performance.now();
 
+        // Smooth lerp state — camera + mouse-driven rotation offsets
+        let camTx = 0, camTy = 0;
+        let rotOffsetY = 0, rotOffsetX = 0;
+
         const animate = () => {
             rafId = requestAnimationFrame(animate);
             const t = (performance.now() - t0) * 0.001;
 
-            points.rotation.y = t * 0.022;
-            points.rotation.x = t * 0.01;
+            // Particles — slow meditative drift
+            points.rotation.y = t * 0.018;
+            points.rotation.x = t * 0.008;
 
-            ico.rotation.y = t * 0.08;
-            ico.rotation.x = t * 0.045;
-            ico2.rotation.y = -t * 0.055;
-            ico2.rotation.z = t * 0.03;
+            // Ico — auto-rotation continues + mouse-driven rotation OFFSET
+            //   mouse moves right → ico rotates so right side faces you, etc.
+            const targetRotY = mx * 0.7;
+            const targetRotX = my * 0.45;
+            rotOffsetY += (targetRotY - rotOffsetY) * 0.025;
+            rotOffsetX += (targetRotX - rotOffsetX) * 0.025;
 
-            // Snappy lerp — feel the mouse
-            tx += (mx * 2.2 - tx) * 0.08;
-            ty += (-my * 1.3 - ty) * 0.07;
-            camera.position.x = tx;
-            camera.position.y = ty;
+            ico.rotation.y = t * 0.06 + rotOffsetY;
+            ico.rotation.x = t * 0.028 + rotOffsetX;
+
+            // Gentle breath scale
+            const breath = 1 + Math.sin(t * 0.4) * 0.025;
+            ico.scale.set(breath, breath, breath);
+
+            // Idle floating — ico stays near base, sine drift for "alive" feel
+            ico.position.x = icoBaseX + Math.sin(t * 0.18) * 0.3;
+            ico.position.y = icoBaseY + Math.cos(t * 0.23) * 0.25;
+
+            // Subtle camera parallax — adds depth
+            camTx += (mx * 0.8 - camTx) * 0.05;
+            camTy += (-my * 0.5 - camTy) * 0.05;
+            camera.position.x = camTx;
+            camera.position.y = camTy;
             camera.lookAt(scene.position);
 
             renderer.render(scene, camera);
@@ -111,7 +133,6 @@ const HeroCanvas = () => {
             window.removeEventListener('resize', onResize);
             geo.dispose(); mat.dispose();
             icoGeo.dispose(); icoMat.dispose();
-            ico2Geo.dispose(); ico2Mat.dispose();
             renderer.dispose();
         };
     }, []);
