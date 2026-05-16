@@ -49,7 +49,7 @@ const HeroCanvas = () => {
         const icoX = isWide ? 5 : 6;
 
         // Main icosahedron
-        const icoGeo = new THREE.IcosahedronGeometry(3.6, 1);
+        const icoGeo = new THREE.IcosahedronGeometry(10.6, 1);
         const icoMat = new THREE.MeshBasicMaterial({ color: '#C9A84C', wireframe: true, transparent: true, opacity: icoOpacity });
         const ico = new THREE.Mesh(icoGeo, icoMat);
         ico.position.set(icoX, -1, -1.5);
