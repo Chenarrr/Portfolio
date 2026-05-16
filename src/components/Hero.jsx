@@ -31,7 +31,7 @@ const Hero = () => {
                         <h1
                             className="font-display font-light leading-[0.92] mb-10"
                             style={{
-                                fontSize: 'clamp(3.5rem, 9vw, 7.5rem)',
+                                fontSize: 'clamp(3rem, 8vw, 7rem)',
                                 color: '#EFEFEC',
                             }}
                         >

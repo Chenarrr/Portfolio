@@ -52,7 +52,7 @@ const HeroCanvas = () => {
         // Single dreamy icosahedron — exact starting place the user loved
         const isWide = window.innerWidth >= 1024;
         const icoOpacity = isWide ? 0.11 : 0.08;
-        const icoBaseX = isWide ? 7 : 3;
+        const icoBaseX = isWide ? 10 : 5;
         const icoBaseY = 4;
         const icoBaseZ = -20;
 
