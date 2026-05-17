@@ -1,37 +1,27 @@
-# Portfolio - Chenar Abdulrazaq
+# Portfolio — Chenar Abdulrazaq
 
-A personal portfolio website built with React and Vite.
+Personal portfolio site. Built with React + Vite, deployed via CI to GHCR and served through the HomeLab k3s cluster.
 
-## Development
-
-To start the development server with Docker:
-
-```bash
-docker-compose up portfolio-dev
-```
-
-The site will be available at http://localhost:5173.
-
-## Building for Production
-
-To create a production build (if you have Node installed locally):
+## Run locally
 
 ```bash
 npm install
-npm run build
+npm run dev        # http://localhost:5173
 ```
 
-The output will be in the `dist` folder.
+## Build
 
-## Deploying to Netlify
-
-- Build command: `npm run build`
-- Publish directory: `dist`
-- No custom base path is needed; the app should be served from `/`
+```bash
+npm run build      # output → dist/
+```
 
 ## Tech Stack
 
-- React
-- Vite
-- Docker
-- CSS3
+| Layer | Technology |
+|-------|-----------|
+| UI | React 19, Vite 8 |
+| Styling | Tailwind CSS 4 |
+| 3D | Three.js |
+| Icons | react-icons 5 |
+| Production | nginx (multi-stage Docker build) |
+| CI | GitHub Actions → GHCR |
